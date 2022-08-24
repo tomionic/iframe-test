@@ -1,0 +1,8 @@
+iframe {
+  background-color: black;
+  width: 100vw;
+  height: calc(
+    100vh - var(--ion-safe-area-bottom) - var(--ion-safe-area-top) - 48px
+  );
+  border: 0;
+}

@@ -1,0 +1,74 @@
+<ion-content>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" autoFocus="false">
+      <mat-toolbar>
+        <button (click)="sidenav.toggle()" mat-icon-button>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </mat-toolbar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar *ngIf="selectedTabIndex === 2">
+        <button (click)="sidenav.toggle()" mat-icon-button>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="toolbar-spacer"></span>
+        <button routerLink="activities" mat-icon-button>
+          <mat-icon>history</mat-icon>
+        </button>
+        <button routerLink="inbox" mat-icon-button>
+          <mat-icon
+            matBadge="&#8288;"
+            matBadgeSize="small"
+            matBadgeColor="warn"
+          >
+            email
+          </mat-icon>
+        </button>
+      </mat-toolbar>
+
+      <mat-tab-group
+        headerPosition="below"
+        mat-stretch-tabs
+        mat-align-tabs="center"
+        [disablePagination]="true"
+        [(selectedIndex)]="selectedTabIndex"
+        animationDuration="0ms"
+      >
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <ion-icon
+              name="search-outline"
+              class="tab-action-button-icon"
+              
+            ></ion-icon>
+          </ng-template>
+          <app-explore-tab></app-explore-tab>
+        </mat-tab>
+        <mat-tab disabled>
+          <ng-template mat-tab-label>
+            <button mat-icon-button (click)="captureWithCustomCamera()">
+              <ion-icon
+                src="/assets/images/icons/capture.svg"
+                class="tab-action-button-icon"
+              >
+                camera_alt
+              </ion-icon>
+            </button>
+          </ng-template>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <button mat-icon-button (click)="navigateToInboxTab()">
+              <ion-icon
+                name="person-outline"
+                class="tab-action-button-icon"
+              ></ion-icon>
+            </button>
+          </ng-template>
+          <app-capture-tab></app-capture-tab>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ion-content>

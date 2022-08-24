@@ -1,0 +1,7 @@
+{
+  "name": "capture-app-iframe-case",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

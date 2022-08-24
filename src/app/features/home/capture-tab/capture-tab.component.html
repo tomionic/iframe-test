@@ -1,0 +1,12 @@
+<mat-grid-list cols="3" gutterSize="8px">
+  <!-- <mat-grid-tile
+    *ngFor="let postCapture of captures$ | async"
+    [routerLink]="['details', { type: 'post-capture', id: postCapture.id }]"
+  > -->
+  <mat-grid-tile
+    *ngFor="let postCapture of captures$ | async"
+    (click)="navDetails(postCapture)"
+  >
+    <ion-img [src]="postCapture.asset_file_thumbnail"></ion-img>
+  </mat-grid-tile>
+</mat-grid-list>
